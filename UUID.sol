@@ -1,12 +1,16 @@
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
-
+/// @title A library for generating UUID
+/// @author Sumit Banik
+/// @notice You can use this contract for only experimental uuid generation.
 library UUID {
 
     // Below is a random semiprime number with 256 bits
     uint constant pq = 98686309634733686614376257523655700182914516739573612855898430044873713577331;
-
+    
+    /// @notice Generate UUID
+    /// @return UUID of 16bytes
     function uuidgen() internal view returns (bytes memory){
         bytes1[16] memory seventhByteMembers = [bytes1(0x40), bytes1(0x41), bytes1(0x42), bytes1(0x43), bytes1(0x44),bytes1(0x45),bytes1(0x46),bytes1(0x47),bytes1(0x48),bytes1(0x49),bytes1(0x4a),bytes1(0x4b),bytes1(0x4c),bytes1(0x4d),bytes1(0x4e),bytes1(0x4f)];
         bytes16 uuidData = bytes16(keccak256(abi.encodePacked(
